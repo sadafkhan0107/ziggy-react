@@ -1,0 +1,14 @@
+/* resturant card css */
+.res-card{
+    width: 200px;
+    padding: 5px;
+    background-color: #f0f0f0;
+  }
+  .res-card:hover{
+    border: 1px solid black;
+    cursor: pointer;
+  }
+  
+  .res-logo{
+    width: 100%;
+  }

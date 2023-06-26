@@ -1,0 +1,17 @@
+/* body CSS */
+.search-container{
+    padding: 10px;
+  }
+  .filter{
+    display: flex;
+  }
+  .res-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .filter-btn{
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+  }
