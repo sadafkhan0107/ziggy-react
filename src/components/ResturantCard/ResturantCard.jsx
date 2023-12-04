@@ -11,6 +11,14 @@ export const ResturantCard = ( {
     avgRating,
     deliveryTime
   }) => {
+    console.log(cloudinaryImageId,
+      name,
+      cuisines,
+      area,
+      lastMileTravelString,
+      costForTwoString,
+      avgRating,
+      deliveryTime)
     return(
       <div className='res-card'>
         <img className="res-logo" alt='res-logo' src={ CDN_URL + cloudinaryImageId} />

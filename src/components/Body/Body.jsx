@@ -19,16 +19,17 @@ export const Body = () => {
       const data = await fetch(swiggy_api_URL);
       const json = await data.json();
       // console.log(json)
+      console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
       // updated state variable restaurants with Swiggy API data
-      setResList(json?.data?.cards[2]?.data?.data?.cards);
-      setFilteredRes(json?.data?.cards[2]?.data?.data?.cards);
+      setResList(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      setFilteredRes(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     } catch (error) {
       console.log(error);
     }
   }
 
   const handleFilterClick= () => {
-    const filteredList = resList.filter((resturant) => resturant.data.avgRating > 4);
+    const filteredList = resList?.filter((resturant) => resturant.info.avgRating > 4);
     console.log(filteredList)
     setFilteredRes(filteredList)
   }
@@ -36,11 +37,11 @@ export const Body = () => {
     setSearchInp(e.target.value)
   }
   const handeleSearchClick = () =>{
-    const filteredArr = resList.filter((res) => res.data.name.toLowerCase().includes(searchInp.toLowerCase()))
+    const filteredArr = resList.filter((res) => res.info.name.toLowerCase().includes(searchInp.toLowerCase()))
     setFilteredRes(filteredArr)
   }
     // conditonal rendering
-    return resList.length === 0 ? <Shimmer /> : (
+    return resList?.length === 0 ? <Shimmer /> : (
       <div className='body'>
         <div className='filter'> 
         <div className='search-container'>
@@ -51,8 +52,8 @@ export const Body = () => {
          </div>
         <div className='res-container'>
            {/* Resturant Cards */}
-           {filteredRes.map((resturant) => {
-          return <ResturantCard key={resturant.data.id} {...resturant.data} />;
+           {filteredRes?.map((resturant) => {
+          return <ResturantCard key={resturant.info.id} {...resturant.info} />;
         })}
         </div>
       </div>
